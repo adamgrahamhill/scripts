@@ -23,7 +23,13 @@ var tweets = document.getElementsByClassName("js-actionable-tweet"), // grab all
 for (var i = 0, x = tweets.length; i < x; i++) {
 	var timestamp = tweets[i].getElementsByClassName("js-short-timestamp")[0].getAttribute("data-time"); //grab timestamp val from tweet
 	if (timestamp <= 1428753665) {
-		tweetsToRemove.push(tweets[i]);
+		tweetsToRemove.push(tweets[i]); // collects all tweets posted before the one I want to keep in an array
 	}
+}
+
+for (i = 0, x = tweetsToRemove.length, i < x; i ++) {
+	var undoButtons = tweetsToRemove[i].getElementsByClassName("ProfileTweet-actionButtonUndo"); //grabs unRetweet & Unlike buttons
+	undoButtons[0].click();
+	undoButtons[1].click();
 }
 
